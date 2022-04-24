@@ -2,7 +2,11 @@
 
 <div>
     {{ borrow_request.requester }} would like to borrow {{ borrow_request.requested_item }} <br>
-    On {{ borrow_request.required_date }} for {{ borrow_request.required_duration }} days
+    On {{ borrow_request.required_date }} for {{ borrow_request.required_duration }} days <br>
+    <form action="{% url 'cancel_request' borrow_request.slug %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn" name="cancel_request" value="{{ borrow_request.slug }}">Cancel Request</button>
+    </form>
 </div>
 
 {% endblock content %}
