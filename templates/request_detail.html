@@ -27,7 +27,12 @@
         {% for borrow_response in borrow_responses %}
             <div>
                 {{ borrow_response.responder }} can lend you what you need: <br>
-                {{ borrow_response.details }}
+                {{ borrow_response.details }} <br>
+                ID: {{ borrow_response.id }}
+                <form action="{% url 'accept_response' borrow_request.slug %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn" name="accept_response" value="{{ borrow_response.id }}">Accept response</button>
+                </form>
             </div>
             <hr>
         {% endfor %}
