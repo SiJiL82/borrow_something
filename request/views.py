@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, reverse
 from django.views import generic, View
-from .models import BorrowRequest
+from .models import BorrowRequest, BorrowResponse
 from .forms import RequestForm, ResponseForm
 from django.contrib import messages
 from django.utils.text import slugify
@@ -100,4 +100,17 @@ class CancelBorrowRequest(View):
         borrow_request.save()
         messages.add_message(request, messages.SUCCESS, 'Request Cancelled')
         
+        return HttpResponseRedirect(reverse('request_detail', args=[slug]))
+
+class AcceptResponse(View):
+    def post(self, request, slug):
+        borrow_request = get_object_or_404(BorrowRequest, slug=slug)
+        response_id = request.POST.get('accept_response')
+        borrow_response = get_object_or_404(BorrowResponse, id=response_id)
+        borrow_response.accepted = True
+        borrow_response.save()
+        borrow_request.accepted_response = True
+        borrow_request.save()
+        messages.add_message(request, messages.SUCCESS, 'Response Accepted!')
+
         return HttpResponseRedirect(reverse('request_detail', args=[slug]))
