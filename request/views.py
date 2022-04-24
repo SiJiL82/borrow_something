@@ -15,7 +15,7 @@ class RequestList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
-class Request(View):
+class NewRequest(View):
     def get(self, request, *args, **kwargs):
         return render(
             request,
@@ -50,3 +50,12 @@ class RequestDetail(View):
                 "borrow_request": borrow_request
             }
         )
+
+class MyRequestList(generic.ListView):
+    model = BorrowRequest
+    context_object_name = 'request_list'
+    template_name = 'my_requests.html'
+    paginate_by = 6
+
+    def get_queryset(self):
+        return self.model.objects.filter(requester=self.request.user).order_by('-created_on')
