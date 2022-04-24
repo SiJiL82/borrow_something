@@ -4,11 +4,17 @@
 
 <div class="container-fluid">
     <div class="row">
-
-        <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
+            <h3>Open requests:</h3>
             <div class="row">
-               
+                {% for borrow_request in request_list  %}
+                    <div>
+                        {{ borrow_request.requester }} <br>
+                        Would like to borrow: {{ borrow_request.requested_item }}  <br>
+                        On: {{ borrow_request.required_date }}
+                    </div>
+                    
+                {% endfor %}
             </div>
         </div>
     </div>
