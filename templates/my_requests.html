@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3 left">
+            
+            <div class="row">
+                {% if request_list.count == 0 %}
+                <h3>You have no active requests</h3
+                {% else %}
+                    <h3>Open requests:</h3>
+                    {% for borrow_request in request_list  %}
+                        <div>
+                            Request: <br>
+                            Created: {{ borrow_request.created_on }} <br>
+                            Item: {{ borrow_request.requested_item }}  <br>
+                            On: {{ borrow_request.required_date }} <br>
+                            <a href="{% url 'request_detail' borrow_request.slug %}">See details</a>
+                        </div>
+                        
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+</div>
+
+{% endblock %}
