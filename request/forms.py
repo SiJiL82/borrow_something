@@ -4,7 +4,10 @@ from django import forms
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
-        fields = ('requested_item', 'details', 'required_date', 'required_duration')
+        fields = ('requested_item', 'details', 'required_date', 'required_duration',)
+        widgets = {
+            'required_date': forms.DateInput(attrs={'type': 'date'}),
+        }
     
     def __init__(self, *args, **kwargs):
         super(RequestForm, self).__init__(*args, **kwargs)
