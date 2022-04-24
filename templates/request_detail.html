@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div>
     {% if borrow_request.requester == user and borrow_request.active %}
         <i class="fas fa-check"></i>
@@ -20,6 +22,29 @@
             <button type="submit" class="btn" name="cancel_request" value="{{ borrow_request.slug }}">Cancel Request</button>
         </form>
     {% endif %}
+    <hr>
+    {% if borrow_request.requester == user %}
+        {% for borrow_response in borrow_responses %}
+            <div>
+                {{ borrow_response.responder }} can lend you what you need: <br>
+                {{ borrow_response.details }}
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        {{ borrow_responses.count }} responses received.
+        <hr>
+    {% endif %}
+    <div>
+        {% if user.is_authenticated %}
+            <h2>Can you lend {{ borrow_request.requester }} what they need?</h2>
+            <form method="post" style="margin-top: 1.3em;">
+                {{ response_form | crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-lg">Submit</button>
+            </form>
+        {% endif %}
+    </div>
 </div>
 
 {% endblock content %}
