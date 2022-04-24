@@ -5,4 +5,10 @@
   - `source venv/bin/activate`
 - Install requirements:
   -  `pip3 install requirements.txt`
--  
+-  Create .env file
+  -  Add steps here
+-  Login to Heroku `heroku login`
+-  Create Heroku app 
+   -  Add steps
+-  Set Heroku as remote repository `heroku git:remote -a APP_NAME`
+-  Push code to Heroku `git push heroku main`
