@@ -5,7 +5,14 @@ The requester can then review responses and choose to accept or reject them.
 Once a borrowing has been completed, the lender can rate the borrower to let other users know if the borrowing went OK.  
 The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp.com/)
 
-## Deployment Instructions
+## Table of Contents
+* [Design](#design)
+* [Features](#features)
+* [Testing](#testing)
+* [Validation](#validation)
+* [Deployment](#deployment)
+* [Credits](#credits)
+## Deployment
 - Clone the repository
 - Create a new Python virtual environment:
   - `python3 -m venv venv`
