@@ -1,0 +1,28 @@
+{
+  "autorun": true,
+  "terminals": [
+    {
+      "name": "Venv",
+      "focus": true,
+      "commands": [
+        "source venv/bin/activate",
+        "clear"
+      ]
+    },
+    {
+      "name": "Web Server",
+      "focus": false,
+      "commands": [
+        "source venv/bin/activate",
+        "python3 manage.py runserver"
+      ]
+    },
+    {
+      "name": "Heroku logs",
+      "focus": false,
+      "commands": [
+        "heroku logs --tail"
+      ]
+    }
+  ]
+}
