@@ -15,6 +15,8 @@
         {{ borrow_request.requester }}
     {% endif %}
     would like to borrow: {{ borrow_request.requested_item }} <br>
+    More info: <br>
+    {{ borrow_request.details }} <br>
     On {{ borrow_request.required_date }} for {{ borrow_request.required_duration }} days <br>
     {% if borrow_request.requester == user and borrow_request.active %}
         <form action="{% url 'cancel_request' borrow_request.slug %}" method="post">
@@ -31,6 +33,7 @@
                 {% if not borrow_request.accepted_response %}
                     <form action="{% url 'accept_response' borrow_request.slug %}" method="post">
                         {% csrf_token %}
+                        {% comment %} {{ request_form | crispy }} {% endcomment %}
                         <button type="submit" class="btn" name="accept_response" value="{{ borrow_response.id }}">Accept response</button>
                     </form>
                 {% endif %}
