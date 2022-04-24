@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+    {{ borrow_request.requester }} would like to borrow {{ borrow_request.requested_item }} <br>
+    On {{ borrow_request.required_date }} for {{ borrow_request.required_duration }} days
+</div>
+
+{% endblock content %}
