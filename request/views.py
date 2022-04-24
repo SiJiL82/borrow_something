@@ -46,8 +46,8 @@ class NewRequest(View):
 
 class RequestDetail(View):
     def get(self, request, slug, *args, **kwargs):
-        queryset = BorrowRequest.objects.filter(active = 1)
-        borrow_request = get_object_or_404(queryset, slug=slug)
+        queryset = BorrowRequest.objects.filter()
+        borrow_request = get_object_or_404(BorrowRequest.objects, slug=slug)
         return render(
             request,
             "request_detail.html",
@@ -64,3 +64,12 @@ class MyRequestList(generic.ListView):
 
     def get_queryset(self):
         return self.model.objects.filter(requester=self.request.user).order_by('-created_on')
+
+class CancelBorrowRequest(View):
+    def post(self, request, slug):
+        borrow_request = get_object_or_404(BorrowRequest, slug=slug)
+        borrow_request.active = False
+        borrow_request.save()
+        messages.add_message(request, messages.SUCCESS, 'Request Cancelled')
+        
+        return HttpResponseRedirect(reverse('request_detail', args=[slug]))
