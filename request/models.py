@@ -11,7 +11,7 @@ class Request(models.Model):
     details = models.TextField()
     required_date = models.DateField()
     required_duration = models.IntegerField(default=1)
-    processed = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     class Meta:
         ordering = ['-created_on']
