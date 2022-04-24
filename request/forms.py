@@ -1,9 +1,9 @@
-from .models import Request
+from .models import BorrowRequest
 from django import forms
 
 class RequestForm(forms.ModelForm):
     class Meta:
-        model = Request
+        model = BorrowRequest
         fields = ('requested_item', 'details', 'required_date', 'required_duration',)
         widgets = {
             'required_date': forms.DateInput(attrs={'type': 'date'}),
