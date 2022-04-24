@@ -17,7 +17,15 @@
                             Created: {{ borrow_request.created_on }} <br>
                             Item: {{ borrow_request.requested_item }}  <br>
                             On: {{ borrow_request.required_date }} <br>
+                            Active:
+                            {% if borrow_request.active %}
+                                <i class="fas fa-check"></i>
+                            {% else %}
+                                <i class="fas fa-times"></i>
+                            {% endif %}
+                            <br>
                             <a href="{% url 'request_detail' borrow_request.slug %}">See details</a>
+                            <hr>
                         </div>
                         
                     {% endfor %}
