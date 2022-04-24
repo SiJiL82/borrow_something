@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, reverse
 from django.views import generic, View
 from .models import BorrowRequest
-from .forms import RequestForm
+from .forms import RequestForm, ResponseForm
 from django.contrib import messages
 from django.utils.text import slugify
 from datetime import datetime
@@ -46,14 +46,38 @@ class NewRequest(View):
 
 class RequestDetail(View):
     def get(self, request, slug, *args, **kwargs):
-        queryset = BorrowRequest.objects.filter()
         borrow_request = get_object_or_404(BorrowRequest.objects, slug=slug)
         return render(
             request,
             "request_detail.html",
             {
                 "borrow_request": borrow_request
-            }
+            },
+        )
+    
+    def post(self, request, slug, *args, **kwargs):
+        borrow_request = get_object_or_404(BorrowRequest.objects, slug=slug)
+        responses = borrow_request.borrow_responses.order_by('created_on')
+
+        response_form = ResponseForm(data=request.POST)
+        if response_form.is_valid():
+            response_form.instance.responder = request.user
+            borrow_response = response_form.save(commit=False)
+            borrow_response.borrow_request = borrow_request
+            borrow_response.save()
+            messages.add_message(request, messages.SUCCESS, 'Response Added!')
+        else:
+            response_form = ResponseForm()
+            messages.add_message(request, messages.ERROR, 'Could Not Add Response.')
+        
+        return render(
+            request,
+            "request_detail.html",
+            {
+                "borrow_request": borrow_request,
+                "responses": responses,
+                "response_form": ResponseForm()
+            },
         )
 
 class MyRequestList(generic.ListView):
