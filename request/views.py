@@ -10,6 +10,7 @@ from datetime import datetime
 # Create your views here.
 class RequestList(generic.ListView):
     model = BorrowRequest
+    context_object_name = 'request_list'
     queryset = BorrowRequest.objects.filter(active=True).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 6
