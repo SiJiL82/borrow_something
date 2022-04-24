@@ -47,11 +47,15 @@ class NewRequest(View):
 class RequestDetail(View):
     def get(self, request, slug, *args, **kwargs):
         borrow_request = get_object_or_404(BorrowRequest.objects, slug=slug)
+        responses = borrow_request.borrow_responses.order_by('created_on')
+
         return render(
             request,
             "request_detail.html",
             {
-                "borrow_request": borrow_request
+                "borrow_request": borrow_request,
+                "borrow_responses": responses,
+                "response_form": ResponseForm()
             },
         )
     
@@ -75,7 +79,7 @@ class RequestDetail(View):
             "request_detail.html",
             {
                 "borrow_request": borrow_request,
-                "responses": responses,
+                "borrow_responses": responses,
                 "response_form": ResponseForm()
             },
         )
