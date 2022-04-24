@@ -6,13 +6,39 @@ Once a borrowing has been completed, the lender can rate the borrower to let oth
 The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp.com/)
 
 ## Table of Contents
-* [Design](#design)
-* [Features](#features)
-* [Testing](#testing)
-* [Validation](#validation)
-* [Deployment](#deployment)
-* [Credits](#credits)
+- [Borrow Something!](#borrow-something)
+  - [Table of Contents](#table-of-contents)
+  - [Design](#design)
+    - [User Stories](#user-stories)
+  - [Features](#features)
+  - [Testing](#testing)
+  - [Validation](#validation)
+  - [Deployment](#deployment)
+    - [Prerequisites](#prerequisites)
+    - [Instructions](#instructions)
+  - [Credits](#credits)
 
+##  Design
+### User Stories
+- __As a user of the website I want to:__
+  - Be able to sign up to the site.
+    - After registering, login to the site with the same credentials on subsequent visits.
+  - Manage requests to borrow something:
+    - Create a new request, detailing:
+      - What I want to borrow.
+      - When I want to borrow it.
+      - How long I want to borrow it for.
+    - Accept responses to my requests to let the other user know I'd like to borrow their item.
+    - Cancel my requests if I no longer need them.
+  - View requests posted by other users.
+  - Respond to requests from other users and let them know what I can lend them.
+  - Rate a borrowing transaction so other users know if the requester is trustworthy.
+
+## Features
+
+## Testing
+
+## Validation
 
 ## Deployment
 ### Prerequisites
@@ -40,3 +66,5 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
    -  Add steps
 -  Set Heroku as remote repository `heroku git:remote -a APP_NAME`
 -  Push code to Heroku `git push heroku main`
+
+## Credits
