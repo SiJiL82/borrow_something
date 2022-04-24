@@ -28,20 +28,27 @@
             <div>
                 {{ borrow_response.responder }} can lend you what you need: <br>
                 {{ borrow_response.details }} <br>
-                ID: {{ borrow_response.id }}
-                <form action="{% url 'accept_response' borrow_request.slug %}" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="btn" name="accept_response" value="{{ borrow_response.id }}">Accept response</button>
-                </form>
+                {% if not borrow_request.accepted_response %}
+                    <form action="{% url 'accept_response' borrow_request.slug %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn" name="accept_response" value="{{ borrow_response.id }}">Accept response</button>
+                    </form>
+                {% endif %}
+                {% if borrow_response.accepted %}
+                    <i class="fas fa-check"></i>
+                {% endif %}
             </div>
             <hr>
         {% endfor %}
     {% else %}
-        {{ borrow_responses.count }} responses received.
+        {{ borrow_responses.count }} responses received. <br>
+        {% if borrow_request.accepted_response %}
+            {{ borrow_request.requester }} has accepted one of the responses.
+        {% endif %}
         <hr>
     {% endif %}
     <div>
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and not borrow_request.accepted_response %}
             <h2>Can you lend {{ borrow_request.requester }} what they need?</h2>
             <form method="post" style="margin-top: 1.3em;">
                 {{ response_form | crispy }}
