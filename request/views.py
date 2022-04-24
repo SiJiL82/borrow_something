@@ -15,7 +15,7 @@ class RequestList(generic.ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        queryset = self.model.objects.filter(active=True).order_by('-required_date')
+        queryset = self.model.objects.filter(active=True, accepted_response=False).order_by('-required_date')
         if self.request.user.is_authenticated:
             return queryset.exclude(requester=self.request.user)
         return queryset
