@@ -34,20 +34,26 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        {% comment %} <a class="nav-link" href="{% url 'account_logout' %}">Logout</a> {% endcomment %}
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
+                        <li class="nav-item">
+                            {% comment %} <a class="nav-link" href="{% url 'account_logout' %}">Logout</a> {% endcomment %}
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
                     {% else %}
-                    <li class="nav-item">
-                        {% comment %} <a class="nav-link" href="{% url 'account_signup' %}">Register</a> {% endcomment %}
-                        <a class="nav-link" href="#">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        {% comment %} <a class="nav-link" href="{% url 'account_login' %}">Login</a> {% endcomment %}
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
+                        <li class="nav-item">
+                            {% comment %} <a class="nav-link" href="{% url 'account_signup' %}">Register</a> {% endcomment %}
+                            <a class="nav-link" href="#">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            {% comment %} <a class="nav-link" href="{% url 'account_login' %}">Login</a> {% endcomment %}
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
                     {% endif %}
+                    {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                        <li class="nav-item">
+                            {% comment %} <a class="nav-link" href="{% url 'account_logout' %}">Logout</a> {% endcomment %}
+                            <a class="nav-link" href="{% url 'new_request' %}">New Request</a>
+                        </li>
+                    {% comment %} {% endif %} {% endcomment %}
                 </ul>
             </div>
         </div>
