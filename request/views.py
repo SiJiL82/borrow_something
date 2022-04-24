@@ -11,9 +11,14 @@ from datetime import datetime
 class RequestList(generic.ListView):
     model = BorrowRequest
     context_object_name = 'request_list'
-    queryset = BorrowRequest.objects.filter(active=True).order_by('-required_date')
     template_name = 'index.html'
     paginate_by = 6
+
+    def get_queryset(self):
+        queryset = self.model.objects.filter(active=True).order_by('-required_date')
+        if self.request.user.is_authenticated:
+            return queryset.exclude(requester=self.request.user)
+        return queryset
 
 class NewRequest(View):
     def get(self, request, *args, **kwargs):
