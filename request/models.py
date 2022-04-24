@@ -12,6 +12,7 @@ class BorrowRequest(models.Model):
     required_date = models.DateField()
     required_duration = models.IntegerField(default=1)
     active = models.BooleanField(default=True)
+    accepted_response = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_on']
