@@ -47,16 +47,14 @@
                             <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                         </li>
                     {% endif %}
-                    {% comment %} {% if user.is_authenticated %} {% endcomment %}
+                    {% if user.is_authenticated %}
                         <li class="nav-item">
-                            {% comment %} <a class="nav-link" href="{% url 'account_logout' %}">Logout</a> {% endcomment %}
                             <a class="nav-link" href="{% url 'new_request' %}">New Request</a>
                         </li>
                         <li class="nav-item">
-                            {% comment %} <a class="nav-link" href="{% url 'account_logout' %}">Logout</a> {% endcomment %}
                             <a class="nav-link" href="{% url 'my_requests' %}">My Requests</a>
                         </li>
-                    {% comment %} {% endif %} {% endcomment %}
+                    {% endif %}
                 </ul>
             </div>
         </div>
