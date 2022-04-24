@@ -11,7 +11,7 @@ from datetime import datetime
 class RequestList(generic.ListView):
     model = BorrowRequest
     context_object_name = 'request_list'
-    queryset = BorrowRequest.objects.filter(active=True).order_by('-created_on')
+    queryset = BorrowRequest.objects.filter(active=True).order_by('-required_date')
     template_name = 'index.html'
     paginate_by = 6
 
