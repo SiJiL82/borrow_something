@@ -18,3 +18,16 @@ class BorrowRequest(models.Model):
     
     def __str__(self):
         return f"{self.requester} requested {self.requested_item}"
+
+class BorrowResponse(models.Model):
+    borrow_request = models.ForeignKey(BorrowRequest, on_delete=models.CASCADE, related_name='borrow_response')
+    responder = models.ForeignKey(User, on_delete=models.CASCADE, related_name='borrow_responder')
+    created_on = models.DateTimeField(auto_now_add=True)
+    details = models.TextField()
+    accepted = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+    
+    def __str__(self):
+        return f"{self.responder} can lend {self.borrow_request.requested_item}"
