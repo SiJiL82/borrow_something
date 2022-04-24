@@ -1,4 +1,4 @@
-from .models import BorrowRequest
+from .models import BorrowRequest, BorrowResponse
 from django import forms
 
 class RequestForm(forms.ModelForm):
@@ -15,3 +15,12 @@ class RequestForm(forms.ModelForm):
         self.fields['details'].label = 'More details:'
         self.fields['required_date'].label = 'On this day:'
         self.fields['required_duration'].label = 'For this many days:'
+
+class ResponseForm(forms.ModelForm):
+    class Meta:
+        model = BorrowResponse
+        fields = ('details',)
+
+    def __init__(self, *args, **kwargs):
+        super(ResponseForm, self).__init__(*args, **kwargs)
+        self.fields['details'].label = 'Details about what you can lend:'
