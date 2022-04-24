@@ -9,9 +9,10 @@
             <div class="row">
                 {% for borrow_request in request_list  %}
                     <div>
-                        {{ borrow_request.requester }} <br>
-                        Would like to borrow: {{ borrow_request.requested_item }}  <br>
-                        On: {{ borrow_request.required_date }}
+                        Request: <br>
+                        Item: {{ borrow_request.requested_item }}  <br>
+                        On: {{ borrow_request.required_date }} <br>
+                        <a href="{% url 'request_detail' borrow_request.slug %}">See details</a>
                     </div>
                     
                 {% endfor %}
