@@ -59,12 +59,15 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - `source venv/bin/activate`
 - Install requirements:
   -  `pip3 install requirements.txt`
--  Create .env file
-  -  Add steps here
--  Login to Heroku `heroku login`
--  Create Heroku app 
-   -  Add steps
--  Set Heroku as remote repository `heroku git:remote -a APP_NAME`
--  Push code to Heroku `git push heroku main`
+- Create .env file
+  - Add steps here
+- Create a [Heroku](https://www.heroku.com) account if you don't already have one.
+- Create a new Heroku application
+- Add environment variables to Heroku config vars:
+  - Add steps here
+- In a terminal inside your copy of the project repository:
+  - Login to Heroku `heroku login`
+  - Set Heroku as remote repository `heroku git:remote -a APP_NAME`
+  - Push code to Heroku `git push heroku main`
 
 ## Credits
