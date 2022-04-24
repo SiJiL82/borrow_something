@@ -32,3 +32,14 @@ class BorrowResponse(models.Model):
     
     def __str__(self):
         return f"{self.responder} can lend {self.borrow_request.requested_item}"
+
+class AcceptedResponse(models.Model):
+    borrow_response = models.ForeignKey(BorrowResponse, on_delete=models.CASCADE, related_name='borrow_response')
+    created_on = models.DateTimeField(auto_now_add=True)
+    details = models.TextField()
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"{self.borrow_response.responder}'s response accepted"
