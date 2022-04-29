@@ -17,7 +17,7 @@
 
 body {
     background: hsl(var(--background-colour), 25%);
-    color: hsl(var(--text-colour), 86%);
+    color: hsl(var(--text-colour), 85%);
 }
 
 a {
@@ -33,4 +33,8 @@ a {
     background: hsl(var(--background-colour), 25%);
     box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
     padding: var(--nm-padding);
+}
+
+.nm-block-item > h4 {
+    color: hsl(var(--text-colour), 96%);
 }
