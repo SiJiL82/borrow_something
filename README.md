@@ -68,8 +68,6 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - `source venv/bin/activate`
 - Install requirements:
   -  `pip3 install requirements.txt`
-- Create .env file
-  - Add steps here
 - Create a [Heroku](https://www.heroku.com) account if you don't already have one.
 - Create a new Heroku application
 - Add environment variables to Heroku config vars:
