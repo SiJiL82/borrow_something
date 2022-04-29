@@ -1,3 +1,11 @@
+:root {
+    --background-colour: 180, 100%;
+    --brand-colour: 204, 27, 60;
+    --nm-highlight-colour: 180, 100;
+    --nm-shadow-colour: 0, 147, 147;
+    --nm-blur-amount: 18px;
+}
+
 /* Clear spacing and border values for all objects */
 * {
     margin: 0;
