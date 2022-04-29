@@ -8,7 +8,7 @@
         {% for borrow_request in request_list  %}
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="nm-block-item mt-2 mb-5">
-                    Request: <br>
+                    <h4>Request:</h4>
                     Item: {{ borrow_request.requested_item }}  <br>
                     On: {{ borrow_request.required_date }} <br>
                     <a href="{% url 'request_detail' borrow_request.slug %}">See details</a>
