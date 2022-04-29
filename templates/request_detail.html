@@ -20,39 +20,48 @@
                 {{ borrow_request.details }} <br>
                 <hr>
                 <span class="request_field">On:</span> {{ borrow_request.required_date }} for {{ borrow_request.required_duration }} days <br>
-                <hr>
-                <div class="row">
+                <div class="row mt-3">
                     <div class="col text-center">
                         {% if borrow_request.requester == user and borrow_request.active %}
                             <form action="{% url 'cancel_request' borrow_request.slug %}" method="post">
                                 {% csrf_token %}
                                 <button type="submit" class="nm-block-item nm-button" name="cancel_request" value="{{ borrow_request.slug }}">Cancel Request</button>
                             </form>
+                            <hr>
                         {% endif %}
                     </div>
                 </div>
                 {% if borrow_request.requester == user %}
                     {% for borrow_response in borrow_responses %}
                         <div>
-                            {{ borrow_response.responder }} can lend you what you need: <br>
+                            <span class="request_field">{{ borrow_response.responder }}</span> can lend you what you need: <br>
+                            <span class="request_field">More info:</span> <br>
                             {{ borrow_response.details }} <br>
                             {% if not borrow_request.accepted_response %}
-                                <form action="{% url 'accept_response' borrow_request.slug %}" method="post">
-                                    {% csrf_token %}
-                                    {% comment %} {{ request_form | crispy }} {% endcomment %}
-                                    <button type="submit" class="btn" name="accept_response" value="{{ borrow_response.id }}">Accept response</button>
-                                </form>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <form action="{% url 'accept_response' borrow_request.slug %}" method="post">
+                                            {% csrf_token %}
+                                            {% comment %} {{ request_form | crispy }} {% endcomment %}
+                                            <button type="submit" class="nm-block-item nm-button" name="accept_response" value="{{ borrow_response.id }}">Accept response</button>
+                                        </form>
+                                    </div>
+                                </div>
                             {% endif %}
                             {% if borrow_response.accepted %}
-                                <i class="fas fa-check"></i>
+                                <br>
+                                <div class="col text-center">
+                                    <i class="fas fa-check"></i>
+                                    You have accepted this response!
+                                </div>
                             {% endif %}
                         </div>
                         <hr>
                     {% endfor %}
                 {% else %}
-                    {{ borrow_responses.count }} responses received. <br>
+                    {{ borrow_responses.count }} response(s) received. <br>
                     {% if borrow_request.accepted_response %}
-                        {{ borrow_request.requester }} has accepted one of the responses.
+                        <span class="request_field">{{ borrow_request.requester }}</span> has accepted one of the responses.
                     {% endif %}
                     <hr>
                 {% endif %}
