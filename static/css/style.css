@@ -16,3 +16,11 @@
 body {
     background: hsl(var(--background-colour), 25%);
 }
+
+.nm-block-item {
+    border-radius: 19px;
+    background: hsl(var(--background-colour), 25%);
+    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),
+                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
+    padding: 19px;
+}
