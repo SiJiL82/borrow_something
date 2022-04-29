@@ -38,3 +38,7 @@ a {
 .nm-block-item > h4 {
     color: hsl(var(--text-colour), 96%);
 }
+
+h3 {
+    color: hsl(var(--brand-colour), 30%);
+}
