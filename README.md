@@ -108,6 +108,20 @@ To enhance the project in the future, the following features are planned:
 - Mark a request as "complete" when the item has been lent and subsequently returned.  
 - Allow the user who lent an item to rate the borrower, allowing other users to decide whether to trust them with a lent item or not.  
 # Testing
+- __User Story Testing__
+  - **Requirement**: Be able to sign up to the site.
+    - The site features sign up, login and logout functionality, allowing users to register and use the features of the site.
+  - **Requirement**: Manage requests to borrow something:
+    - **Requirement**: Create a new request:
+      - After registering and authenticating with the site, the user can create a new request with all requested functionality.  
+    - **Requirement**: Accept responses to my requests to let the other user know I'd like to borrow their item.
+      - Users can view their requests and any responses, and accept the response they prefer.  
+    - **Requirement**: Cancel my requests if I no longer need them.
+      - The user can choose to cancel their request at any time and it will no longer be visible by other users.  
+  - **Requirement**: View requests posted by other users.
+    - All non-cancelled requests from other users are visible on the index page of the site.  
+  - **Requirement**: Respond to requests from other users and let them know what I can lend them.
+    - Once authenticated on the site, the user can view the details for a request, and enter a typed out response to the user, letting them know what they can lend.
 
 # Validation
 
