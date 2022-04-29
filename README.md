@@ -21,7 +21,6 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - [View Own Raised Requests](#view-own-raised-requests)
 - [Future Developments](#future-developments)
 - [Testing](#testing)
-- [Validation](#validation)
 - [Deployment](#deployment)
   - [Prerequisites](#prerequisites)
   - [Instructions](#instructions)
@@ -124,11 +123,11 @@ To enhance the project in the future, the following features are planned:
   - **Requirement**: Respond to requests from other users and let them know what I can lend them.
     - Once authenticated on the site, the user can view the details for a request, and enter a typed out response to the user, letting them know what they can lend.
 
-# Validation
-
 # Deployment
 ## Prerequisites
 - Generate a [Django secret key](https://miniwebtool.com/django-secret-key-generator/) 
+- Sign up for an account with [Heroku](https://www.heroku.com)  
+- Sign up for an account with [Cloudinary](https://cloudinary.com)  
 ## Instructions
 - Create a local copy of the GitHub repository, by following one of the 2 processes below:
     - Download code:
@@ -145,8 +144,14 @@ To enhance the project in the future, the following features are planned:
   -  `pip3 install requirements.txt`
 - Create a [Heroku](https://www.heroku.com) account if you don't already have one.
 - Create a new Heroku application
+- Goto Resources and add a "Heroku Postgres" addon. 
 - Add environment variables to Heroku config vars:
-  - Add steps here
+  - Go to Settings in Heroku.
+  - Click "Reveal Config Vars"
+  - Add the following:
+    - Key: `CLOUDINARY_URL` Value: `API Environment variable from your Cloudinary account`  
+    - Key: `HEROKU_APP_NAME` Value: `URL of the Heroku app you've created`
+    - Key: `SECRET_KEY` Value: `Django secret key created in prerequisites`
 - In a terminal inside your copy of the project repository:
   - Login to Heroku `heroku login`
   - Set Heroku as remote repository `heroku git:remote -a APP_NAME`
