@@ -40,7 +40,8 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
 ![Index Page Wireframe](readme-assets/site_layout_index.png)  
 **View Own Request Details Page**  
 ![View Own Request Details Page Wireframe](readme-assets/view_own_request.png)  
-
+**View Another Person's Request Details Page**  
+![View Other Request Details Page](readme-assets/view_other_request.png)  
 
 # Features
 
