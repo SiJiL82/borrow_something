@@ -9,7 +9,7 @@
     --nm-padding: 19px;
     --text-colour: 94, 0%;
     --link-colour: 19, 100%;
-    --accepted-colour: 123, 100%;
+    --inactive-colour: 0, 100%;
 }
 
 /* Clear spacing and border values for all objects */
@@ -113,6 +113,10 @@ input, textarea {
 
 .fa-check {
     color: hsl(var(--brand-colour), var(--brand-lightness));
+}
+
+.fa-times {
+    color: hsl(var(--inactive-colour), 46%);
 }
 
 .asteriskField {
