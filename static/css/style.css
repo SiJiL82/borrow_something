@@ -24,12 +24,12 @@ body {
     color: hsl(var(--text-colour), 30%);
 }
 
-a, .nav-link {
+a, .nav-link, .nm-button {
     color: hsl(var(--link-colour), 40%);
     text-decoration: none;
 }
 
-a:hover, .nav-link:hover {
+a:hover, .nav-link:hover, .nm-button:hover {
     color: hsl(var(--link-colour), 40%);
     text-decoration: underline;
 }
@@ -64,11 +64,11 @@ h3 {
     background: linear-gradient(145deg, hsl(var(--background-colour), var(--background-lighter)), hsl(var(--background-colour), var(--background-darker)));
 }
 
-.nm-button:hover {
+.nm-button:active {
     box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), var(--background-darker)),
                 -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), var(--background-lighter)),
-                inset 11px 11px 25px hsl(var(--background-colour), var(--background-darker)),
-                inset -11px -11px 25px hsl(var(--background-colour), var(--background-lighter));
+                inset 5px 5px 7px hsl(var(--background-colour), var(--background-darker)),
+                inset -5px -5px 7px hsl(var(--background-colour), var(--background-lighter));
 }
 
 .nm-navbar {
@@ -109,4 +109,8 @@ textarea {
     box-shadow: inset 5px 5px 10px hsl(var(--background-colour), var(--background-darker)),
             inset -5px -5px 10px hsl(var(--background-colour), var(--background-lighter));
     padding: var(--nm-padding);
+}
+
+.fa-check {
+    color:hsl(var(--brand-colour), var(--brand-lightness));
 }
