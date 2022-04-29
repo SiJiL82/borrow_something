@@ -1,9 +1,12 @@
 :root {
-    --background-colour: 180, 100%; /* #008080 */
-    --brand-colour: 300, 100%; /* #800080 */
+    --background-colour: 0, 0%; /* #008080 */
+    --background-lightness: 87;
+    --background-lighter: calc((var(--background-lightness) + 10)*1%);
+    --background-darker: calc((var(--background-lightness) - 10)*1%);
+    --brand-colour: 94, 98%; /* #800080 */
     --nm-blur-amount: 18px;
     --nm-padding: 19px;
-    --text-colour: 180, 0%;
+    --text-colour: 94, 0%;
     --link-colour: 60, 77%;
     --accepted-colour: 123, 100%;
 }
@@ -16,16 +19,16 @@
 }
 
 body {
-    background: hsl(var(--background-colour), 25%);
-    color: hsl(var(--text-colour), 85%);
+    background: hsl(var(--background-colour), var(--background-lightness));
+    color: hsl(var(--text-colour), 30%);
 }
 
-a {
+a, .nav-link {
     color: hsl(var(--link-colour), 60%);
     text-decoration: none;
 }
 
-a:hover {
+a:hover, .nav-link:hover {
     color: hsl(var(--link-colour), 60%);
     text-decoration: underline;
 }
@@ -36,18 +39,19 @@ a:hover {
     -moz-border-radius: var(--nm-padding);
     -ms-border-radius: var(--nm-padding);
     -o-border-radius: var(--nm-padding);
-    background: hsl(var(--background-colour), 25%);
-    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),
-                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
+    background: hsl(var(--background-colour), var(--background-lightness));
+    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), var(--background-darker)),
+                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), var(--background-lighter));
     padding: var(--nm-padding);
 }
 
 .nm-block-item > h4 {
-    color: hsl(var(--text-colour), 96%);
+    color: hsl(var(--text-colour), 35%);
+    font-weight: 200;
 }
 
 h3 {
-    color: hsl(var(--brand-colour), 26%);
+    color: hsl(var(--text-colour), 20%);
     font-weight: bolder;
 }
 
@@ -56,26 +60,26 @@ h3 {
 }
 
 .nm-button {
-    background: linear-gradient(145deg, hsl(var(--background-colour), 29%), hsl(var(--background-colour), 21%));
+    background: linear-gradient(145deg, hsl(var(--background-colour), var(--background-lighter)), hsl(var(--background-colour), var(--background-darker)));
 }
 
 .nm-button:hover {
-    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),
-                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%),
-                inset 11px 11px 25px hsl(var(--background-colour), 21%),
-                inset -11px -11px 25px hsl(var(--background-colour), 29%);
+    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), var(--background-darker)),
+                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), var(--background-lighter)),
+                inset 11px 11px 25px hsl(var(--background-colour), var(--background-darker)),
+                inset -11px -11px 25px hsl(var(--background-colour), var(--background-lighter));
 }
 
 .nm-navbar {
-    background: hsl(var(--background-colour), 20%);
+    background: hsl(var(--background-colour), var(--background-lightness));
 }
 
 .navbar-brand {
-    color: hsl(var(--brand-colour), 20%);
+    color: hsl(var(--brand-colour), 40%);
     font-size: xx-large;
     font-weight: 900;
 }
 
 .navbar-brand:hover {
-    color: hsl(var(--brand-colour), 20%);
+    color: hsl(var(--brand-colour), 40%);
 }
