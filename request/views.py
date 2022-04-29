@@ -8,6 +8,8 @@ from django.utils.text import slugify
 from datetime import datetime
 
 # Create your views here.
+
+
 class RequestList(generic.ListView):
     model = BorrowRequest
     context_object_name = 'request_list'
@@ -15,10 +17,12 @@ class RequestList(generic.ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        queryset = self.model.objects.filter(active=True, accepted_response=False).order_by('-required_date')
+        queryset = self.model.objects.filter(
+            active=True, accepted_response=False).order_by('-required_date')
         if self.request.user.is_authenticated:
             return queryset.exclude(requester=self.request.user)
         return queryset
+
 
 class NewRequest(View):
     def get(self, request, *args, **kwargs):
@@ -34,7 +38,9 @@ class NewRequest(View):
         request_form = RequestForm(data=request.POST)
         if request_form.is_valid():
             request_form.instance.requester = request.user
-            slug_str = request.user.username + '-' + request_form.instance.requested_item + '-' + request_form.instance.required_date.strftime("%d%m%Y") + '-' + datetime.now().strftime("%H%M%S")
+            slug_str = request.user.username + '-' + request_form.instance.requested_item + '-' + \
+                request_form.instance.required_date.strftime(
+                    "%d%m%Y") + '-' + datetime.now().strftime("%H%M%S")
             request_form.instance.slug = slugify(slug_str)
             new_request = request_form.save()
             messages.add_message(request, messages.SUCCESS, 'Request Created!')
@@ -43,6 +49,7 @@ class NewRequest(View):
             messages.add_message(request, messages.ERROR, 'Request Failed')
 
         return HttpResponseRedirect(reverse('request_detail', args=[new_request.slug]))
+
 
 class RequestDetail(View):
     def get(self, request, slug, *args, **kwargs):
@@ -58,7 +65,7 @@ class RequestDetail(View):
                 "response_form": ResponseForm()
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         borrow_request = get_object_or_404(BorrowRequest.objects, slug=slug)
         responses = borrow_request.borrow_responses.order_by('created_on')
@@ -72,8 +79,9 @@ class RequestDetail(View):
             messages.add_message(request, messages.SUCCESS, 'Response Added!')
         else:
             response_form = ResponseForm()
-            messages.add_message(request, messages.ERROR, 'Could Not Add Response.')
-        
+            messages.add_message(request, messages.ERROR,
+                                 'Could Not Add Response.')
+
         return render(
             request,
             "request_detail.html",
@@ -84,6 +92,7 @@ class RequestDetail(View):
             },
         )
 
+
 class MyRequestList(generic.ListView):
     model = BorrowRequest
     context_object_name = 'request_list'
@@ -93,14 +102,16 @@ class MyRequestList(generic.ListView):
     def get_queryset(self):
         return self.model.objects.filter(requester=self.request.user).order_by('-created_on')
 
+
 class CancelBorrowRequest(View):
     def post(self, request, slug):
         borrow_request = get_object_or_404(BorrowRequest, slug=slug)
         borrow_request.active = False
         borrow_request.save()
         messages.add_message(request, messages.SUCCESS, 'Request Cancelled')
-        
+
         return HttpResponseRedirect(reverse('request_detail', args=[slug]))
+
 
 class AcceptResponse(View):
     def post(self, request, slug):
