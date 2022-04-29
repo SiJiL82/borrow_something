@@ -2,15 +2,17 @@
 
 {% block content %}
 
-<h3>Open requests:</h3>
+
 <div class="container-fluid">
+    <h3 class="mt-2">Open requests:</h3>
     <div class="row">
         {% for borrow_request in request_list  %}
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="nm-block-item mt-2 mb-5">
+                <div class="nm-block-item mt-4">
                     <h4>Request:</h4>
                     Item: {{ borrow_request.requested_item }}  <br>
                     On: {{ borrow_request.required_date }} <br>
+                    For: {{ borrow_request.required_duration }} days <br>
                     <a href="{% url 'request_detail' borrow_request.slug %}">See details</a>
                 </div>
             </div>
@@ -18,16 +20,18 @@
     </div>
 </div>
     {% if is_paginated %}
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
-                {% endif %}
-                {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
-                {% endif %}
-            </ul>
-        </nav>
+        <div class="row mt-4">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     {% endif %}
 </div>
 
