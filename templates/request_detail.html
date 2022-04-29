@@ -51,7 +51,7 @@
         <hr>
     {% endif %}
     <div>
-        {% if user.is_authenticated and not borrow_request.accepted_response %}
+        {% if user.is_authenticated and not borrow_request.accepted_response and not user == borrow_request.requester %}
             <h2>Can you lend {{ borrow_request.requester }} what they need?</h2>
             <form method="post" style="margin-top: 1.3em;">
                 {{ response_form | crispy }}
