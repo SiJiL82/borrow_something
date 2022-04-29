@@ -48,6 +48,7 @@ a:hover {
 
 h3 {
     color: hsl(var(--brand-colour), 30%);
+    font-weight: bolder;
 }
 
 .request_field {
