@@ -3,6 +3,9 @@
     --brand-colour: 300, 100%; /* #800080 */
     --nm-blur-amount: 18px;
     --nm-padding: 19px;
+    --text-colour: 180, 0%;
+    --link-colour: 60, 77%;
+    --accepted-colour: 123, 100%;
 }
 
 /* Clear spacing and border values for all objects */
@@ -14,6 +17,11 @@
 
 body {
     background: hsl(var(--background-colour), 25%);
+    color: hsl(var(--text-colour), 86%);
+}
+
+a {
+    color: hsl(var(--link-colour), 60%);
 }
 
 .nm-block-item {
