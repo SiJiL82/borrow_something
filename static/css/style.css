@@ -1,9 +1,10 @@
 :root {
-    --background-colour: 0, 0%; /* #008080 */
+    --background-colour: 0, 0%;
     --background-lightness: 87;
     --background-lighter: calc((var(--background-lightness) + 10)*1%);
     --background-darker: calc((var(--background-lightness) - 10)*1%);
-    --brand-colour: 94, 98%; /* #800080 */
+    --brand-colour: 94, 98%;
+    --brand-lightness: 40%;
     --nm-blur-amount: 18px;
     --nm-padding: 19px;
     --text-colour: 94, 0%;
@@ -75,11 +76,16 @@ h3 {
 }
 
 .navbar-brand {
-    color: hsl(var(--brand-colour), 40%);
+    color: hsl(var(--brand-colour), var(--brand-lightness));
     font-size: xx-large;
     font-weight: 900;
 }
 
 .navbar-brand:hover {
-    color: hsl(var(--brand-colour), 40%);
+    color: hsl(var(--brand-colour), var(--brand-lightness));
+}
+
+.navbar {
+    border-bottom: 10px solid grey;
+    border-image: linear-gradient(45deg, hsl(var(--brand-colour), var(--brand-lightness)), hsl(var(--link-colour), var(--brand-lightness)), hsl(var(--brand-colour), var(--brand-lightness))) 1;
 }
