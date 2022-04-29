@@ -12,6 +12,14 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - [User Stories](#user-stories)
   - [Site Wireframes](#site-wireframes)
 - [Features](#features)
+  - [Navigation bar](#navigation-bar)
+  - [Index Page](#index-page)
+  - [Authentication](#authentication)
+  - [Raise Requests](#raise-requests)
+  - [View Request Details](#view-request-details)
+  - [Accepting a Response](#accepting-a-response)
+  - [View Own Raised Requests](#view-own-raised-requests)
+- [Future Developments](#future-developments)
 - [Testing](#testing)
 - [Validation](#validation)
 - [Deployment](#deployment)
@@ -33,7 +41,6 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
     - Cancel my requests if I no longer need them.
   - View requests posted by other users.
   - Respond to requests from other users and let them know what I can lend them.
-  - Rate a borrowing transaction so other users know if the requester is trustworthy.
 
 ## Site Wireframes
 **Index Page**  
@@ -44,15 +51,68 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
 ![View Other Request Details Page](readme-assets/view_other_request.png)  
 
 # Features
+## Navigation bar
+The site features a responsive navigation bar, with the site name (Borrow Something!) as a link back to the index page.  
+![Full Navbar](readme-assets/nav_bar_full_size.png)  
+At smaller screen sizes, the menu collapses into a button that can be clicked to expand and show the menu options:  
+![Small Navbar](readme-assets/nav_bar_small.png)  
+![Small Navbar Expanded](readme-assets/nav_small_expanded.png)  
+When a user has logged in to the site, the branding updates to include their name, and a link to view their active requests:  
+![Navbar Logged In User](readme-assets/nav_bar_logged_in.png)  
+## Index Page
+The default index page that users are presented with shows all available requests that have not had an accepted response:  
+![Index Page Full Size](readme-assets/index_full.png)  
+This page adjusts the columns shown to the user to adapt to the screen size of their device:  
+![Index Page Medium Size](readme-assets/index_mid.png)  
+![Index Page Small Size](readme-assets/index_small.png)  
+![Index Page Tiny Size](readme-assets/index_tiny.png)  
+When a user is logged in, their own requests are hidden from the page:  
+![Index Page Own Requests Hidden](readme-assets/index_own_hidden.png)  
+## Authentication
+To make full use of the site, the user is required to register, which then allows the user to:
+- Raise new requests.
+- Cancel their requests.
+- Respond to other users' requests.
+- Accept responses to their requests from other users.  
 
+To test the functionality of the site, you should register 2 separate user accounts (use 2 different browsers to make this simpler and have both accounts signed in at once).  
+This will enable you to create and respond to requests easily.
+## Raise Requests
+If the user wants to raise a request to borrow something they need, they can click the "New Request" button that is visible after signing up and logging in:  
+![Raise a New Request](readme-assets/raise_new_request.png)  
+The user can then enter:
+- The name of the object they wish to borrow.
+- Some more information to describe what they wish to borrow.
+- The date they need to borrow the item.
+- How long they wish to borrow it for.  
+
+![Completed New Request Form](readme-assets/completed_request_form.png)  
+On clicking "Submit", the entry is saved to a database and can be viewed by other users.  
+## View Request Details
+By clicking the "See Details" button on a request, the user is taken to the full details for the request.  
+If the request is owned by the logged in user, they can see any responses to their request, and choose to accept any responses or cancel the request:  
+![View Own Request Details](readme-assets/request_details_my_request.png)  
+If the request was raised by someone else, the user will see a form to provide a response to the user where they can enter details about what they can lend:  
+![View Request With Response Form](readme-assets/request_details_response_form.png)  
+## Accepting a Response
+If a user wishes to accept a response to their request, they can click the "Accept Response" button on their request.  
+The request will no longer be displayed for other users to view.  
+![Response Accepted](readme-assets/response_accepted.png)  
+## View Own Raised Requests
+Clicking on the "My Requests" button takes the user to a page where they can see all their own requests, and click "See Details" on any to be taken to the further details page.  
+The user is shown which of their requests are active and which they have cancelled.  
+![My Requests](readme-assets/my_requests.png)  
+# Future Developments
+To enhance the project in the future, the following features are planned:  
+- When accepting a response on a request, send an email to the responder with contact details etc. in to allow the users to meet up and lend items.  
+- Mark a request as "complete" when the item has been lent and subsequently returned.  
+- Allow the user who lent an item to rate the borrower, allowing other users to decide whether to trust them with a lent item or not.  
 # Testing
 
 # Validation
 
 # Deployment
 ## Prerequisites
-- This project requires you to have [Python](https://www.python.org/) installed on your local PC.  
-  - You will also need [pip](https://pip.pypa.io/en/stable/installation/) installed to allow installation of modules the application uses.  
 - Generate a [Django secret key](https://miniwebtool.com/django-secret-key-generator/) 
 ## Instructions
 - Create a local copy of the GitHub repository, by following one of the 2 processes below:
