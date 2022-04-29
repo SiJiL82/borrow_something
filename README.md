@@ -24,6 +24,7 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
 - [Deployment](#deployment)
   - [Prerequisites](#prerequisites)
   - [Instructions](#instructions)
+- [Known Issues](#known-issues)
 - [Credits](#credits)
 
 #  Design
@@ -122,7 +123,6 @@ To enhance the project in the future, the following features are planned:
     - All non-cancelled requests from other users are visible on the index page of the site.  
   - **Requirement**: Respond to requests from other users and let them know what I can lend them.
     - Once authenticated on the site, the user can view the details for a request, and enter a typed out response to the user, letting them know what they can lend.
-
 # Deployment
 ## Prerequisites
 - Generate a [Django secret key](https://miniwebtool.com/django-secret-key-generator/) 
@@ -157,5 +157,8 @@ To enhance the project in the future, the following features are planned:
   - Set Heroku as remote repository `heroku git:remote -a APP_NAME`
   - Push code to Heroku `git push heroku main`
 
+# Known Issues
+- The Heroku deployment returns a 404 error retrieving the CSS file from the remote Cloudinary storage as it looks in the wrong path for the file.  
+  - As a workaround, a direct link to the CSS file is included in `base.html`  
 # Credits
 - [Neumorphism.io](https://neumorphism.io) to generate CSS styling of site elements.  
