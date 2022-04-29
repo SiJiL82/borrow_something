@@ -10,9 +10,12 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="nm-block-item mt-4">
                     <h4>Request:</h4>
+                    <span class="request_field">Created:</span> {{ borrow_request.created_on }}
+                    <hr>
                     <span class="request_field">Item:</span> {{ borrow_request.requested_item }}  <br>
                     <span class="request_field">On:</span> {{ borrow_request.required_date }} <br>
                         <span class="request_field">For:</span> {{ borrow_request.required_duration }} days <br>
+                    <hr>
                     <a href="{% url 'request_detail' borrow_request.slug %}">See details</a>
                 </div>
             </div>
