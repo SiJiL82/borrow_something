@@ -103,3 +103,10 @@ h3 {
     border-bottom: 10px solid grey;
     border-image: linear-gradient(45deg, hsl(var(--brand-colour), var(--brand-lightness)), hsl(var(--link-colour), var(--brand-lightness)), hsl(var(--brand-colour), var(--brand-lightness))) 1;
 }
+
+textarea {
+    border-radius: var(--nm-padding);
+    box-shadow: inset 5px 5px 10px hsl(var(--background-colour), var(--background-darker)),
+            inset -5px -5px 10px hsl(var(--background-colour), var(--background-lighter));
+    padding: var(--nm-padding);
+}
