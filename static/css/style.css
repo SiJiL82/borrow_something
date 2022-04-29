@@ -59,6 +59,8 @@ h3 {
 }
 
 .nm-button:hover {
-    box-shadow: inset 11px 11px 25px #006565,
-            inset -11px -11px 25px #009b9b;
+    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),
+                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%),
+                inset 11px 11px 25px hsl(var(--background-colour), 21%),
+                inset -11px -11px 25px hsl(var(--background-colour), 29%);
 }
