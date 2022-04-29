@@ -64,3 +64,7 @@ h3 {
                 inset 11px 11px 25px hsl(var(--background-colour), 21%),
                 inset -11px -11px 25px hsl(var(--background-colour), 29%);
 }
+
+.nm-navbar {
+    background: hsl(var(--background-colour), 20%);
+}
