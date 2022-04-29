@@ -22,6 +22,12 @@ body {
 
 a {
     color: hsl(var(--link-colour), 60%);
+    text-decoration: none;
+}
+
+a:hover {
+    color: hsl(var(--link-colour), 60%);
+    text-decoration: underline;
 }
 
 .nm-block-item {
@@ -31,7 +37,8 @@ a {
     -ms-border-radius: var(--nm-padding);
     -o-border-radius: var(--nm-padding);
     background: hsl(var(--background-colour), 25%);
-    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
+    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),
+                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
     padding: var(--nm-padding);
 }
 
@@ -45,4 +52,13 @@ h3 {
 
 .request_field {
     font-weight: bold;
+}
+
+.nm-button {
+    background: linear-gradient(145deg, hsl(var(--background-colour), 29%), hsl(var(--background-colour), 21%));
+}
+
+.nm-button:hover {
+    box-shadow: inset 11px 11px 25px #006565,
+            inset -11px -11px 25px #009b9b;
 }
