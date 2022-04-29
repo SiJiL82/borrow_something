@@ -7,7 +7,7 @@
     --nm-blur-amount: 18px;
     --nm-padding: 19px;
     --text-colour: 94, 0%;
-    --link-colour: 60, 77%;
+    --link-colour: 19, 100%;
     --accepted-colour: 123, 100%;
 }
 
@@ -24,12 +24,12 @@ body {
 }
 
 a, .nav-link {
-    color: hsl(var(--link-colour), 60%);
+    color: hsl(var(--link-colour), 40%);
     text-decoration: none;
 }
 
 a:hover, .nav-link:hover {
-    color: hsl(var(--link-colour), 60%);
+    color: hsl(var(--link-colour), 40%);
     text-decoration: underline;
 }
 
