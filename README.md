@@ -10,7 +10,7 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
 - [Table of Contents](#table-of-contents)
 - [Design](#design)
   - [User Stories](#user-stories)
-  - [Site Mockups](#site-mockups)
+  - [Site Wireframes](#site-wireframes)
     - [Index Page](#index-page)
 - [Features](#features)
 - [Testing](#testing)
@@ -36,8 +36,9 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - Respond to requests from other users and let them know what I can lend them.
   - Rate a borrowing transaction so other users know if the requester is trustworthy.
 
-## Site Mockups
+## Site Wireframes
 ### Index Page
+![Index Page Wireframe](readme-assets/site_layout_index.png)
 
 
 # Features
