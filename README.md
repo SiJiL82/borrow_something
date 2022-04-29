@@ -107,6 +107,7 @@ To enhance the project in the future, the following features are planned:
 - When accepting a response on a request, send an email to the responder with contact details etc. in to allow the users to meet up and lend items.  
 - Mark a request as "complete" when the item has been lent and subsequently returned.  
 - Allow the user who lent an item to rate the borrower, allowing other users to decide whether to trust them with a lent item or not.  
+- Allow users responding to a request to add an image of their item to their response.  
 # Testing
 - __User Story Testing__
   - **Requirement**: Be able to sign up to the site.
