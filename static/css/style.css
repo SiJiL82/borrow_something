@@ -42,3 +42,7 @@ a {
 h3 {
     color: hsl(var(--brand-colour), 30%);
 }
+
+.request_field {
+    font-weight: bold;
+}
