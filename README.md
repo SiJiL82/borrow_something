@@ -5,21 +5,23 @@ The requester can then review responses and choose to accept or reject them.
 Once a borrowing has been completed, the lender can rate the borrower to let other users know if the borrowing went OK.  
 The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp.com/)
 
-## Table of Contents
+# Table of Contents
 - [Borrow Something!](#borrow-something)
-  - [Table of Contents](#table-of-contents)
-  - [Design](#design)
-    - [User Stories](#user-stories)
-  - [Features](#features)
-  - [Testing](#testing)
-  - [Validation](#validation)
-  - [Deployment](#deployment)
-    - [Prerequisites](#prerequisites)
-    - [Instructions](#instructions)
-  - [Credits](#credits)
+- [Table of Contents](#table-of-contents)
+- [Design](#design)
+  - [User Stories](#user-stories)
+  - [Site Mockups](#site-mockups)
+    - [Index Page](#index-page)
+- [Features](#features)
+- [Testing](#testing)
+- [Validation](#validation)
+- [Deployment](#deployment)
+  - [Prerequisites](#prerequisites)
+  - [Instructions](#instructions)
+- [Credits](#credits)
 
-##  Design
-### User Stories
+#  Design
+## User Stories
 - __As a user of the website I want to:__
   - Be able to sign up to the site.
     - After registering, login to the site with the same credentials on subsequent visits.
@@ -34,18 +36,22 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - Respond to requests from other users and let them know what I can lend them.
   - Rate a borrowing transaction so other users know if the requester is trustworthy.
 
-## Features
+## Site Mockups
+### Index Page
 
-## Testing
 
-## Validation
+# Features
 
-## Deployment
-### Prerequisites
+# Testing
+
+# Validation
+
+# Deployment
+## Prerequisites
 - This project requires you to have [Python](https://www.python.org/) installed on your local PC.  
   - You will also need [pip](https://pip.pypa.io/en/stable/installation/) installed to allow installation of modules the application uses.  
 - Generate a [Django secret key](https://miniwebtool.com/django-secret-key-generator/) 
-### Instructions
+## Instructions
 - Create a local copy of the GitHub repository, by following one of the 2 processes below:
     - Download code:
         - Go to the [GitHub Repo](https://github.com/SiJiL82/borrow_something) page.
@@ -70,4 +76,4 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
   - Set Heroku as remote repository `heroku git:remote -a APP_NAME`
   - Push code to Heroku `git push heroku main`
 
-## Credits
+# Credits
