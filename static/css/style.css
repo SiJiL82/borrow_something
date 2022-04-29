@@ -47,7 +47,7 @@ a:hover {
 }
 
 h3 {
-    color: hsl(var(--brand-colour), 30%);
+    color: hsl(var(--brand-colour), 26%);
     font-weight: bolder;
 }
 
@@ -68,4 +68,14 @@ h3 {
 
 .nm-navbar {
     background: hsl(var(--background-colour), 20%);
+}
+
+.navbar-brand {
+    color: hsl(var(--brand-colour), 20%);
+    font-size: xx-large;
+    font-weight: 900;
+}
+
+.navbar-brand:hover {
+    color: hsl(var(--brand-colour), 20%);
 }
