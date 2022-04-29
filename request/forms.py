@@ -8,7 +8,14 @@ class RequestForm(forms.ModelForm):
         fields = ('requested_item', 'details',
                   'required_date', 'required_duration',)
         widgets = {
-            'required_date': forms.DateInput(attrs={'type': 'date'}),
+            'required_date': forms.DateInput(attrs={
+                'type': 'date',
+                'style': 'max-width: 12em'
+            }),
+            'required_duration': forms.NumberInput(attrs={
+                'style': 'max-width: 12em'
+            })
+
         }
 
     def __init__(self, *args, **kwargs):
