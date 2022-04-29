@@ -1,7 +1,8 @@
 :root {
-    --background-colour: 180, 100%;
-    --brand-colour: 204, 27, 60;
+    --background-colour: 180, 100%; /* #008080 */
+    --brand-colour: 300, 100%; /* #800080 */
     --nm-blur-amount: 18px;
+    --nm-padding: 19px;
 }
 
 /* Clear spacing and border values for all objects */
@@ -16,9 +17,12 @@ body {
 }
 
 .nm-block-item {
-    border-radius: 19px;
+    border-radius: var(--nm-padding);
+    -webkit-border-radius: var(--nm-padding);
+    -moz-border-radius: var(--nm-padding);
+    -ms-border-radius: var(--nm-padding);
+    -o-border-radius: var(--nm-padding);
     background: hsl(var(--background-colour), 25%);
-    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),
-                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
-    padding: 19px;
+    box-shadow: 9px 9px var(--nm-blur-amount) hsl(var(--background-colour), 21%),                -9px -9px var(--nm-blur-amount) hsl(var(--background-colour), 29%);
+    padding: var(--nm-padding);
 }
