@@ -24,7 +24,6 @@ The site can be viewed at [Heroku Deployment](https://borrow-something.herokuapp
 - [Deployment](#deployment)
   - [Prerequisites](#prerequisites)
   - [Instructions](#instructions)
-- [Known Issues](#known-issues)
 - [Credits](#credits)
 
 #  Design
@@ -157,8 +156,6 @@ To enhance the project in the future, the following features are planned:
   - Set Heroku as remote repository `heroku git:remote -a APP_NAME`
   - Push code to Heroku `git push heroku main`
 
-# Known Issues
-- The Heroku deployment returns a 404 error retrieving the CSS file from the remote Cloudinary storage as it looks in the wrong path for the file.  
-  - As a workaround, a direct link to the CSS file is included in `base.html`  
 # Credits
 - [Neumorphism.io](https://neumorphism.io) to generate CSS styling of site elements.  
+- 
